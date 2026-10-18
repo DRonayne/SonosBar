@@ -268,17 +268,17 @@ private struct SwitchRowStyle: ToggleStyle {
 }
 
 @main
-struct SonosBar: App {
-    @NSApplicationDelegateAdaptor(StatusItem.self) private var statusItem
-
-    init() {
+enum SonosBar {
+    // Plain AppKit entry point: a SwiftUI App needs a scene, and the only spare one, Settings, pops up an empty window.
+    @MainActor static func main() {
         if CommandLine.arguments.contains("--selftest") {
             Sonos.selfTest()
             exit(0)
         }
+        let delegate = StatusItem()
+        NSApplication.shared.delegate = delegate
+        NSApplication.shared.run()
     }
-
-    var body: some Scene { Settings { EmptyView() } }
 }
 
 /// Our own status item and panel: MenuBarExtra's window paints square fills we cannot turn off.
