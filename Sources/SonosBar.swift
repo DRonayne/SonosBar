@@ -183,7 +183,7 @@ struct Panel: View {
             Grid(alignment: .leading, horizontalSpacing: 10, verticalSpacing: 6) {
                 ForEach(["Bass", "Treble"], id: \.self) { name in
                     GridRow {
-                        Text(name).foregroundStyle(.secondary)
+                        Text(name)
                         Slider(value: model.tone(name), in: -10...10) { Text(name) } onEditingChanged: { model.dragging = $0 }
                             .labelsHidden()
                         Text(String(format: "%+d", Int(model.tone(name).wrappedValue)))
