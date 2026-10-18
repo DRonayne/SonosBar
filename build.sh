@@ -17,7 +17,7 @@ cat > "$APP/Contents/Info.plist" <<'EOF'
 <key>CFBundleIdentifier</key><string>com.darach.sonosbar</string>
 <key>CFBundleName</key><string>SonosBar</string>
 <key>CFBundlePackageType</key><string>APPL</string>
-<key>CFBundleShortVersionString</key><string>0.1</string>
+<key>CFBundleShortVersionString</key><string>0.2</string>
 <key>LSMinimumSystemVersion</key><string>14.0</string>
 <key>LSUIElement</key><true/>
 <key>NSLocalNetworkUsageDescription</key><string>Finds and controls Sonos speakers on your home network.</string>
