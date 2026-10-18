@@ -2,11 +2,11 @@
 # Builds SonosBar.app (menu bar only) next to this script.
 set -e
 cd "$(dirname "$0")"
-swift build -c release
+swift build -c release --arch arm64 --arch x86_64
 APP=SonosBar.app
 rm -rf "$APP"
 mkdir -p "$APP/Contents/MacOS"
-cp .build/release/SonosBar "$APP/Contents/MacOS/"
+cp "$(swift build -c release --arch arm64 --arch x86_64 --show-bin-path)/SonosBar" "$APP/Contents/MacOS/"
 cat > "$APP/Contents/Info.plist" <<'EOF'
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
